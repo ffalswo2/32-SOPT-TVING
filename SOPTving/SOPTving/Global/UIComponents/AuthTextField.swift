@@ -129,6 +129,7 @@ final class AuthTextField: UITextField {
 private extension AuthTextField {
 
     func config() {
+        
         style()
         delegate = self
         self.autocapitalizationType = .none
