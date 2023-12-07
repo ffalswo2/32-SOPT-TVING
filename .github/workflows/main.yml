@@ -42,7 +42,7 @@ jobs:
     strategy:
       matrix:
         xcode: [15.0.1]
-    name: Test
+    
     steps:
       - uses: actions/checkout@v3
       - name: Test
