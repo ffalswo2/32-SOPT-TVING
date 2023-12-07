@@ -44,7 +44,7 @@ jobs:
         xcode: [15.0.1]
     name: Test
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Test
         run: |
           xcodebuild clean test -project SOPTving/SOPTving.xcodeproj -scheme SOPTving -destination 'platform=iOS Simulator,name=iPhone 11 Pro,OS=latest' -resultBundlePath TestResults.xcresult
