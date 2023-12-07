@@ -9,6 +9,7 @@ import UIKit
 
 protocol HomeViewControllerProtocol: AnyObject {
     func updateScrollViewOffset(y: CGFloat)
+    
 }
 
 
