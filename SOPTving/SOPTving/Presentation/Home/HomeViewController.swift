@@ -22,7 +22,7 @@ final class HomeViewController: BaseViewController {
 
     private var movies: [Movie] = [] {
         didSet {
-//            self.collectionView.reloadData()
+            self.collectionView.reloadData()
         }
     }
 
@@ -30,10 +30,10 @@ final class HomeViewController: BaseViewController {
 
     // MARK: - UI Components
 
-//    private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: self.createLayout()).then {
-//        $0.contentInsetAdjustmentBehavior = .never
-//        $0.backgroundColor = .tvingBlack
-//    }
+    private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: self.createLayout()).then {
+        $0.contentInsetAdjustmentBehavior = .never
+        $0.backgroundColor = .tvingBlack
+    }
 
     @frozen
     enum Section: Int, CaseIterable {
@@ -91,30 +91,30 @@ final class HomeViewController: BaseViewController {
     }
 
     private func setDelegate() {
-//        collectionView.dataSource = self
+        collectionView.dataSource = self
     }
 
     override func setStyle() {
         view.backgroundColor = .tvingBlack
-//        collectionView.do {
-//            $0.register(cell: MovieDramaCollectionViewCell.self)
-//            $0.register(cell: PopularChannelCollectionViewCell.self)
-//            $0.register(cell: ImageBannerCollectionViewCell.self)
-//            $0.registerHeaderView(reusableView: MainSectionHeaderView.self)
-//            $0.register(cell: ContainerCarouselCollectionViewCell.self)
-//            $0.delegate = self
-//        }
+        collectionView.do {
+            $0.register(cell: MovieDramaCollectionViewCell.self)
+            $0.register(cell: PopularChannelCollectionViewCell.self)
+            $0.register(cell: ImageBannerCollectionViewCell.self)
+            $0.registerHeaderView(reusableView: MainSectionHeaderView.self)
+            $0.register(cell: ContainerCarouselCollectionViewCell.self)
+            $0.delegate = self
+        }
     }
 
     override func setLayout() {
-//        view.addSubviews(
-//            collectionView
-//        )
-//
-//        collectionView.snp.makeConstraints { make in
-//            make.top.leading.trailing.equalToSuperview()
-//            make.bottom.equalTo(view.safeAreaLayoutGuide)
-//        }
+        view.addSubviews(
+            collectionView
+        )
+
+        collectionView.snp.makeConstraints { make in
+            make.top.leading.trailing.equalToSuperview()
+            make.bottom.equalTo(view.safeAreaLayoutGuide)
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -141,119 +141,119 @@ extension HomeViewController {
 
 private extension HomeViewController {
 
-//    func createLayout() -> UICollectionViewCompositionalLayout {
-//        let layout = UICollectionViewCompositionalLayout { sectionIndex, layoutEnvironment -> NSCollectionLayoutSection? in
-//
-//            guard let sectionType = Section(rawValue: sectionIndex) else { return nil }
-//
-//            switch sectionType {
-//            case .movieAndDrama, .paramountNew, .favoriteMovies, .programCollection, .animations:
-//                return self.createMovieAndDramaSectionLayout(sectionType: sectionType)
-//            case .liveChannel:
-//                return self.createLiveChannelSectionLayout(sectionType: sectionType)
-//            case .imageBanner:
-//                return self.createImageBannerSectionLayout(sectionType: sectionType)
-//            case .carousel:
-//                return self.createCarouselSectionLayout(sectionType: sectionType)
-//            }
-//        }
-//
-//        return layout
-//    }
+    func createLayout() -> UICollectionViewCompositionalLayout {
+        let layout = UICollectionViewCompositionalLayout { sectionIndex, layoutEnvironment -> NSCollectionLayoutSection? in
 
-//    func createMovieAndDramaSectionLayout(sectionType: Section) -> NSCollectionLayoutSection {
-//        // item -> group -> section -> layout
-//        let itemSize = NSCollectionLayoutSize(
-//            widthDimension: .fractionalWidth(1),
-//            heightDimension: .fractionalHeight(1)
-//        )
-//
-//        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-//        item.contentInsets = .init(top: 0, leading: 0, bottom: 0, trailing: 8)
-//
-//        let groupSize = NSCollectionLayoutSize(
-//            widthDimension: .fractionalWidth(0.3),
-//            heightDimension: .estimated(150)
-//        )
-//
-//        let group = NSCollectionLayoutGroup
-//            .horizontal(layoutSize: groupSize, subitems: [item])
-//
-//        let section = NSCollectionLayoutSection(group: group)
-//
-//        let sectionHeader = createSectionHeader()
-//
-//        section.boundarySupplementaryItems = [sectionHeader]
-//        section.orthogonalScrollingBehavior = .continuous
-//        section.contentInsets = .init(top: 0, leading: 15, bottom: sectionType.sectionInsetBottom, trailing: 7)
-//
-//        return section
-//    }
-//
-//    func createLiveChannelSectionLayout(sectionType: Section) -> NSCollectionLayoutSection {
-//        let itemSize = NSCollectionLayoutSize(
-//            widthDimension: .fractionalWidth(1),
-//            heightDimension: .fractionalHeight(1)
-//        )
-//        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-//        item.contentInsets = .init(top: 0, leading: 0, bottom: 0, trailing: 7)
-//
-//        let groupSize = NSCollectionLayoutSize(
-//            widthDimension: .fractionalWidth(0.4),
-//            heightDimension: .estimated(140)
-//        )
-//        let group = NSCollectionLayoutGroup
-//            .horizontal(layoutSize: groupSize, subitems: [item])
-//
-//
-//        let sectionHeader = createSectionHeader()
-//        let section = NSCollectionLayoutSection(group: group)
-//        section.boundarySupplementaryItems = [sectionHeader]
-//        section.orthogonalScrollingBehavior = .continuous
-//        section.contentInsets = .init(top: 0, leading: 12, bottom: sectionType.sectionInsetBottom, trailing: 5)
-//
-//        return section
-//    }
+            guard let sectionType = Section(rawValue: sectionIndex) else { return nil }
 
-//    func createImageBannerSectionLayout(sectionType: Section) -> NSCollectionLayoutSection {
-//        let itemSize = NSCollectionLayoutSize(
-//            widthDimension: .fractionalWidth(1),
-//            heightDimension: .fractionalHeight(1)
-//        )
-//        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-//        let gropSize = NSCollectionLayoutSize(
-//            widthDimension: .fractionalWidth(1),
-//            heightDimension: .absolute(58)
-//        )
-////        let group = NSCollectionLayoutGroup.horizontal(layoutSize: gropSize, repeatingSubitem: item, count: 1)
-//        let section = NSCollectionLayoutSection(group: group)
-//        section.contentInsets = .init(top: 0, leading: 0, bottom: sectionType.sectionInsetBottom, trailing: 0)
-//
-//        return section
-//    }
+            switch sectionType {
+            case .movieAndDrama, .paramountNew, .favoriteMovies, .programCollection, .animations:
+                return self.createMovieAndDramaSectionLayout(sectionType: sectionType)
+            case .liveChannel:
+                return self.createLiveChannelSectionLayout(sectionType: sectionType)
+            case .imageBanner:
+                return self.createImageBannerSectionLayout(sectionType: sectionType)
+            case .carousel:
+                return self.createCarouselSectionLayout(sectionType: sectionType)
+            }
+        }
 
-//    func createCarouselSectionLayout(sectionType: Section) -> NSCollectionLayoutSection {
-//        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
-//        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-//
-//        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.7))
-////        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, repeatingSubitem: item, count: 1)
-////        let section = NSCollectionLayoutSection(group: group)
-////        section.contentInsets = .init(top: 0, leading: 0, bottom: sectionType.sectionInsetBottom, trailing: 0)
-//
-//        return section
-//    }
+        return layout
+    }
 
-//    func createSectionHeader() -> NSCollectionLayoutBoundarySupplementaryItem {
-//        let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
-//            layoutSize: NSCollectionLayoutSize(
-//                widthDimension: .fractionalWidth(1),
-//                heightDimension: .estimated(30)
-//            ),
-//            elementKind: UICollectionView.elementKindSectionHeader,
-//            alignment: .topLeading)
-//        return sectionHeader
-//    }
+    func createMovieAndDramaSectionLayout(sectionType: Section) -> NSCollectionLayoutSection {
+        // item -> group -> section -> layout
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1),
+            heightDimension: .fractionalHeight(1)
+        )
+
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = .init(top: 0, leading: 0, bottom: 0, trailing: 8)
+
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(0.3),
+            heightDimension: .estimated(150)
+        )
+
+        let group = NSCollectionLayoutGroup
+            .horizontal(layoutSize: groupSize, subitems: [item])
+
+        let section = NSCollectionLayoutSection(group: group)
+
+        let sectionHeader = createSectionHeader()
+
+        section.boundarySupplementaryItems = [sectionHeader]
+        section.orthogonalScrollingBehavior = .continuous
+        section.contentInsets = .init(top: 0, leading: 15, bottom: sectionType.sectionInsetBottom, trailing: 7)
+
+        return section
+    }
+
+    func createLiveChannelSectionLayout(sectionType: Section) -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1),
+            heightDimension: .fractionalHeight(1)
+        )
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = .init(top: 0, leading: 0, bottom: 0, trailing: 7)
+
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(0.4),
+            heightDimension: .estimated(140)
+        )
+        let group = NSCollectionLayoutGroup
+            .horizontal(layoutSize: groupSize, subitems: [item])
+
+
+        let sectionHeader = createSectionHeader()
+        let section = NSCollectionLayoutSection(group: group)
+        section.boundarySupplementaryItems = [sectionHeader]
+        section.orthogonalScrollingBehavior = .continuous
+        section.contentInsets = .init(top: 0, leading: 12, bottom: sectionType.sectionInsetBottom, trailing: 5)
+
+        return section
+    }
+
+    func createImageBannerSectionLayout(sectionType: Section) -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1),
+            heightDimension: .fractionalHeight(1)
+        )
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        let gropSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1),
+            heightDimension: .absolute(58)
+        )
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: gropSize, repeatingSubitem: item, count: 1)
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = .init(top: 0, leading: 0, bottom: sectionType.sectionInsetBottom, trailing: 0)
+
+        return section
+    }
+
+    func createCarouselSectionLayout(sectionType: Section) -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.7))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, repeatingSubitem: item, count: 1)
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = .init(top: 0, leading: 0, bottom: sectionType.sectionInsetBottom, trailing: 0)
+
+        return section
+    }
+
+    func createSectionHeader() -> NSCollectionLayoutBoundarySupplementaryItem {
+        let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1),
+                heightDimension: .estimated(30)
+            ),
+            elementKind: UICollectionView.elementKindSectionHeader,
+            alignment: .topLeading)
+        return sectionHeader
+    }
 
 }
 
