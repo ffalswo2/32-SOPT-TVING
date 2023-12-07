@@ -52,9 +52,9 @@ final class MovieDramaCollectionViewCell: UICollectionViewCell {
     }
 
     func configureCell(movie: Movie) {
-        movie.posterImagePath.downloadImageWithURLString(completion: { image in
-            self.posterImageView.image = image
-        })
+//        movie.posterImagePath.downloadImageWithURLString(completion: { image in
+//            self.posterImageView.image = image
+//        })
         titleLabel.text = movie.title
     }
 
