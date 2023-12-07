@@ -39,25 +39,25 @@ final class BottomSheetViewController: UIViewController {
         return textField
     }()
 
-    private lazy var saveButton: UIButton = {
-        var config = UIButton.Configuration.filled()
-        config.background.backgroundColor = .tvingRed
-        config.baseForegroundColor = .tvingWhite
-        var titleAttr = AttributedString("저장하기")
-        titleAttr.font = .font(.pretendardSemiBold, ofSize: 14)
-        config.attributedTitle = titleAttr
-        let button = UIButton(configuration: config)
-
-        let action = UIAction { _ in
-            guard let text = self.nicknameTextField.text
-            else { return }
-            self.completion?(text)
-            self.hideBottomSheetWithAnimation()
-        }
-        button.addAction(action, for: .touchUpInside)
-        button.layer.cornerRadius = 5
-        return button
-    }()
+//    private lazy var saveButton: UIButton = {
+//        var config = UIButton.Configuration.filled()
+//        config.background.backgroundColor = .tvingRed
+//        config.baseForegroundColor = .tvingWhite
+//        var titleAttr = AttributedString("저장하기")
+//        titleAttr.font = .font(.pretendardSemiBold, ofSize: 14)
+//        config.attributedTitle = titleAttr
+//        let button = UIButton(configuration: config)
+//
+//        let action = UIAction { _ in
+//            guard let text = self.nicknameTextField.text
+//            else { return }
+//            self.completion?(text)
+//            self.hideBottomSheetWithAnimation()
+//        }
+//        button.addAction(action, for: .touchUpInside)
+//        button.layer.cornerRadius = 5
+//        return button
+//    }()
 
     // MARK: - View Life Cycle
 
@@ -80,8 +80,8 @@ private extension BottomSheetViewController {
         view.addSubview(containerView)
         containerView.addSubviews(
             titleLabel,
-            nicknameTextField,
-            saveButton
+            nicknameTextField
+//            saveButton
         )
         containerView.snp.makeConstraints { make in
             make.top.equalTo(self.view.snp.bottom)
@@ -101,10 +101,10 @@ private extension BottomSheetViewController {
             make.height.equalTo(52)
         }
 
-        saveButton.snp.makeConstraints { make in
-            make.bottom.leading.trailing.equalToSuperview().inset(20)
-            make.height.equalTo(52)
-        }
+//        saveButton.snp.makeConstraints { make in
+//            make.bottom.leading.trailing.equalToSuperview().inset(20)
+//            make.height.equalTo(52)
+//        }
 
         containerView.layer.cornerRadius = 12
         containerView.layer.maskedCorners = [

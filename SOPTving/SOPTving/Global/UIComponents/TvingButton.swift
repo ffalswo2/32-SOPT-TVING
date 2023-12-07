@@ -94,10 +94,10 @@ final class TvingButton: UIButton {
 
     private func setLayout() {
         if tvingButtonType == .seeAll {
-            var config = UIButton.Configuration.plain()
-            config.image = ImageLiterals.MyPage.nextArrow
-            config.imagePadding = 1
-            self.configuration = config
+//            var config = UIButton.Configuration.plain()
+//            config.image = ImageLiterals.MyPage.nextArrow
+//            config.imagePadding = 1
+//            self.configuration = config
         }
     }
 

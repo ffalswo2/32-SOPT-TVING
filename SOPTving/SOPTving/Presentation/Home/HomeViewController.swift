@@ -107,6 +107,7 @@ final class HomeViewController: BaseViewController {
     }
 
     override func setLayout() {
+        
         view.addSubviews(
 //            collectionView
         )
@@ -268,7 +269,7 @@ extension HomeViewController: UICollectionViewDelegate {
 
 // MARK: - UICollectionViewDataSource
 
-extension HomeViewController: UICollectionViewDataSource {
+extension HomeViewController {
 
 //    func numberOfSections(in collectionView: UICollectionView) -> Int {
 //        return Section.allCases.count

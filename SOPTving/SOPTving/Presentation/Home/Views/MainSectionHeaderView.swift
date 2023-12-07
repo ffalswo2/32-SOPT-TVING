@@ -14,21 +14,21 @@ class MainSectionHeaderView: UICollectionReusableView {
         $0.font = .font(.pretendardSemiBold, ofSize: 15)
     }
 
-    private let seeAllButton: UIButton = {
-        var config = UIButton.Configuration.plain()
-        var titleAttr = AttributedString("전체보기")
-        titleAttr.font = .font(.pretendardMedium, ofSize: 13)
-        config.attributedTitle = titleAttr
-        config.baseForegroundColor = .tvingGray2
-        config.image = ImageLiterals.MyPage.nextArrow
-            .withTintColor(.tvingGray2, renderingMode: .alwaysTemplate)
-            .resize(to: CGSize(width: 10, height: 10))
-        config.imagePlacement = .trailing
-        config.imagePadding = 0
-        let button = UIButton(configuration: config)
-
-        return button
-    }()
+//    private let seeAllButton: UIButton = {
+//        var config = UIButton.Configuration.plain()
+//        var titleAttr = AttributedString("전체보기")
+//        titleAttr.font = .font(.pretendardMedium, ofSize: 13)
+//        config.attributedTitle = titleAttr
+//        config.baseForegroundColor = .tvingGray2
+//        config.image = ImageLiterals.MyPage.nextArrow
+//            .withTintColor(.tvingGray2, renderingMode: .alwaysTemplate)
+//            .resize(to: CGSize(width: 10, height: 10))
+//        config.imagePlacement = .trailing
+//        config.imagePadding = 0
+//        let button = UIButton(configuration: config)
+//
+//        return button
+//    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -40,16 +40,16 @@ class MainSectionHeaderView: UICollectionReusableView {
     }
 
     private func setLayout() {
-        self.addSubviews(descriptionLabel, seeAllButton)
+        self.addSubviews(descriptionLabel)
         descriptionLabel.snp.makeConstraints { make in
             make.leading.equalToSuperview()
             make.centerY.equalToSuperview()
         }
 
-        seeAllButton.snp.makeConstraints { make in
-            make.centerY.equalTo(descriptionLabel)
-            make.trailing.equalToSuperview()
-        }
+//        seeAllButton.snp.makeConstraints { make in
+//            make.centerY.equalTo(descriptionLabel)
+//            make.trailing.equalToSuperview()
+//        }
     }
 
     func configHeaderView(text: String) {
