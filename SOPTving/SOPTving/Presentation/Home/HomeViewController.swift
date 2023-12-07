@@ -107,6 +107,7 @@ final class HomeViewController: BaseViewController {
     }
 
     override func setLayout() {
+        
         view.addSubviews(
 //            collectionView
         )
