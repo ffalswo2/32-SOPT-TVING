@@ -52,4 +52,5 @@ jobs:
       - uses: kishikawakatsumi/xcresulttool@v1
         with:
           path: TestResults.xcresult
+          token: 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
         if: success() || failure()
