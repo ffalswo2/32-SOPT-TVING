@@ -31,6 +31,8 @@ final class HomeViewController: BaseViewController {
     // MARK: - UI Components
 
     private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: self.createLayout()).then {
+        
+        
         $0.contentInsetAdjustmentBehavior = .never
         $0.backgroundColor = .tvingBlack
     }
