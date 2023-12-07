@@ -62,40 +62,40 @@ final class AuthTextField: UITextField {
 
     // MARK: - UI Components
 
-    private lazy var clearButton: UIButton = {
-        var config = UIButton.Configuration.plain()
-        config.image = UIImage(systemName: "xmark.circle.fill")
+//    private lazy var clearButton: UIButton = {
+//        var config = UIButton.Configuration.plain()
+//        config.image = UIImage(systemName: "xmark.circle.fill")
+//
+//        let button = UIButton(configuration: config)
+//        let action = UIAction { _ in
+//            self.text?.removeAll()
+//            self.clearButton.alpha = 0
+//            self.clearButton.isUserInteractionEnabled = false
+//        }
+//        button.addAction(action, for: .touchUpInside)
+//        button.tintColor = .tvingGray2
+//        return button
+//    }()
 
-        let button = UIButton(configuration: config)
-        let action = UIAction { _ in
-            self.text?.removeAll()
-            self.clearButton.alpha = 0
-            self.clearButton.isUserInteractionEnabled = false
-        }
-        button.addAction(action, for: .touchUpInside)
-        button.tintColor = .tvingGray2
-        return button
-    }()
-
-    private lazy var eyeButton: UIButton = {
-        var config = UIButton.Configuration.plain()
-        let button = UIButton(configuration: config)
-
-        let action = UIAction { _ in
-            self.eyeButton.isSelected.toggle()
-            self.isSecureTextEntry.toggle()
-        }
-        button.tintColor = .tvingGray2
-        button.automaticallyUpdatesConfiguration = false
-        button.addAction(action, for: .touchUpInside)
-
-        return button
-    }()
+//    private lazy var eyeButton: UIButton = {
+//        var config = UIButton.Configuration.plain()
+//        let button = UIButton(configuration: config)
+//
+//        let action = UIAction { _ in
+//            self.eyeButton.isSelected.toggle()
+//            self.isSecureTextEntry.toggle()
+//        }
+//        button.tintColor = .tvingGray2
+//        button.automaticallyUpdatesConfiguration = false
+//        button.addAction(action, for: .touchUpInside)
+//
+//        return button
+//    }()
 
     private lazy var rightStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [
-            clearButton,
-            eyeButton
+//            clearButton,
+//            eyeButton
         ])
         stackView.alignment = .center
         stackView.distribution = .fillEqually
@@ -129,7 +129,7 @@ final class AuthTextField: UITextField {
 private extension AuthTextField {
 
     func config() {
-        style()
+//        style()
         delegate = self
         self.autocapitalizationType = .none
         isSecureTextEntry = textFieldType.isSecure
@@ -146,39 +146,39 @@ private extension AuthTextField {
         rightViewMode = .whileEditing
         rightView = rightStackView
 
-        switch textFieldType {
-        case .email:
-            rightView = clearButton
-            hideClearButton()
-        case .password:
-            rightView = rightStackView
-            hideClearButton()
+//        switch textFieldType {
+//        case .email:
+//            rightView = clearButton
+//            hideClearButton()
+//        case .password:
+//            rightView = rightStackView
+//            hideClearButton()
         }
     }
 
-    func style() {
-        backgroundColor = .tvingGray4
-        font = .font(.pretendardMedium, ofSize: 15)
-        textColor = .tvingWhite
-    }
+//    func style() {
+//        backgroundColor = .tvingGray4
+//        font = .font(.pretendardMedium, ofSize: 15)
+//        textColor = .tvingWhite
+//    }
 
 
     func setLayout() {
-        rightView?.snp.makeConstraints { make in
-            make.width.lessThanOrEqualTo(90)
-        }
+//        rightView?.snp.makeConstraints { make in
+//            make.width.lessThanOrEqualTo(90)
+//        }
     }
 
     func setButtonHandler() {
-        eyeButton.configurationUpdateHandler = { button in
-            var config = button.configuration
-            config?.image = button.isSelected
-            ? UIImage(systemName: "eye.fill")
-            : UIImage(systemName: "eye.slash.fill")
-            button.configuration = config
-        }
+//        eyeButton.configurationUpdateHandler = { button in
+//            var config = button.configuration
+//            config?.image = button.isSelected
+//            ? UIImage(systemName: "eye.fill")
+//            : UIImage(systemName: "eye.slash.fill")
+//            button.configuration = config
+//        }
     }
-}
+
 
 // MARK: - Methods
 
@@ -193,15 +193,15 @@ private extension AuthTextField {
         }
     }
 
-    func hideClearButton() {
-        clearButton.alpha = 0
-        clearButton.isUserInteractionEnabled = false
-    }
-
-    func showClearButton() {
-        clearButton.alpha = 1
-        clearButton.isUserInteractionEnabled = true
-    }
+//    func hideClearButton() {
+//        clearButton.alpha = 0
+//        clearButton.isUserInteractionEnabled = false
+//    }
+//
+//    func showClearButton() {
+//        clearButton.alpha = 1
+//        clearButton.isUserInteractionEnabled = true
+//    }
 }
 
 // MARK: - Delegate
@@ -220,9 +220,9 @@ extension AuthTextField: UITextFieldDelegate {
         guard let text = self.text else { return }
         completion?(text)
         if text.isEmpty {
-            hideClearButton()
+//            hideClearButton()
         } else {
-            showClearButton()
+//            showClearButton()
         }
     }
 }

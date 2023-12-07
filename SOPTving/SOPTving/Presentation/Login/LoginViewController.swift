@@ -55,54 +55,54 @@ final class LoginViewController: UIViewController {
         return stackView
     }()
 
-    private lazy var loginButton: UIButton = {
-        var config = UIButton.Configuration.plain()
-        var titleAttr = AttributedString("로그인하기")
-        titleAttr.font = .font(.pretendardSemiBold, ofSize: 14)
-        config.attributedTitle = titleAttr
-        config.background.backgroundColor = .tvingBlack
-        config.baseForegroundColor = .tvingGray2
-        let button = UIButton(configuration: config)
-        let action = UIAction { _ in
-            let welcomeVC = WelcomeViewController()
-            if let nickname = self.nickname {
-                welcomeVC.dataBind(nameOrEmail: nickname)
-            } else {
-                guard let email = self.email else { return }
-                welcomeVC.dataBind(nameOrEmail: email)
-            }
-            self.navigationController?.pushViewController(welcomeVC, animated: true)
-        }
-        button.addAction(action, for: .touchUpInside)
-        
-        button.layer.borderColor = UIColor.tvingGray4.cgColor
-        button.layer.borderWidth = 1
-        button.layer.cornerRadius = 3
-        button.isUserInteractionEnabled = false
-        return button
-    }()
+//    private lazy var loginButton: UIButton = {
+//        var config = UIButton.Configuration.plain()
+//        var titleAttr = AttributedString("로그인하기")
+//        titleAttr.font = .font(.pretendardSemiBold, ofSize: 14)
+//        config.attributedTitle = titleAttr
+//        config.background.backgroundColor = .tvingBlack
+//        config.baseForegroundColor = .tvingGray2
+//        let button = UIButton(configuration: config)
+//        let action = UIAction { _ in
+//            let welcomeVC = WelcomeViewController()
+//            if let nickname = self.nickname {
+//                welcomeVC.dataBind(nameOrEmail: nickname)
+//            } else {
+//                guard let email = self.email else { return }
+//                welcomeVC.dataBind(nameOrEmail: email)
+//            }
+//            self.navigationController?.pushViewController(welcomeVC, animated: true)
+//        }
+//        button.addAction(action, for: .touchUpInside)
+//        
+//        button.layer.borderColor = UIColor.tvingGray4.cgColor
+//        button.layer.borderWidth = 1
+//        button.layer.cornerRadius = 3
+//        button.isUserInteractionEnabled = false
+//        return button
+//    }()
 
-    private let findIdButton: UIButton = {
-        var config = UIButton.Configuration.plain()
-        var titleAttr = AttributedString.init("아이디 찾기")
-        titleAttr.font = .font(.pretendardSemiBold, ofSize: 14)
-        config.attributedTitle = titleAttr
-        config.background.backgroundColor = .tvingBlack
-        config.baseForegroundColor = .tvingGray2
-        let button = UIButton(configuration: config)
-        return button
-    }()
-
-    private let findPasswordButton: UIButton = {
-        var config = UIButton.Configuration.plain()
-        var titleAttr = AttributedString.init("비밀번호 찾기")
-        titleAttr.font = .font(.pretendardSemiBold, ofSize: 14)
-        config.attributedTitle = titleAttr
-        config.background.backgroundColor = .tvingBlack
-        config.baseForegroundColor = .tvingGray2
-        let button = UIButton(configuration: config)
-        return button
-    }()
+//    private let findIdButton: UIButton = {
+//        var config = UIButton.Configuration.plain()
+//        var titleAttr = AttributedString.init("아이디 찾기")
+//        titleAttr.font = .font(.pretendardSemiBold, ofSize: 14)
+//        config.attributedTitle = titleAttr
+//        config.background.backgroundColor = .tvingBlack
+//        config.baseForegroundColor = .tvingGray2
+//        let button = UIButton(configuration: config)
+//        return button
+//    }()
+//
+//    private let findPasswordButton: UIButton = {
+//        var config = UIButton.Configuration.plain()
+//        var titleAttr = AttributedString.init("비밀번호 찾기")
+//        titleAttr.font = .font(.pretendardSemiBold, ofSize: 14)
+//        config.attributedTitle = titleAttr
+//        config.background.backgroundColor = .tvingBlack
+//        config.baseForegroundColor = .tvingGray2
+//        let button = UIButton(configuration: config)
+//        return button
+//    }()
 
     private let grayLineView: UIView = {
         let view = UIView()
@@ -110,17 +110,17 @@ final class LoginViewController: UIViewController {
         return view
     }()
 
-    private lazy var findInfoStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [
-            findIdButton,
-            grayLineView,
-            findPasswordButton
-        ])
-        stackView.axis = .horizontal
-        stackView.spacing = 33
-        stackView.distribution = .equalSpacing
-        return stackView
-    }()
+//    private lazy var findInfoStackView: UIStackView = {
+//        let stackView = UIStackView(arrangedSubviews: [
+//            findIdButton,
+//            grayLineView,
+//            findPasswordButton
+//        ])
+//        stackView.axis = .horizontal
+//        stackView.spacing = 33
+//        stackView.distribution = .equalSpacing
+//        return stackView
+//    }()
 
     private let noAccountLabel: UILabel = {
         let label = UILabel()
@@ -130,37 +130,37 @@ final class LoginViewController: UIViewController {
         return label
     }()
 
-    private lazy var createAccountButton: UIButton = {
-        var config = UIButton.Configuration.plain()
-        var titleAttr = AttributedString("닉네임 만들러가기")
-        titleAttr.font = .font(.pretendardRegular, ofSize: 14)
-        titleAttr.underlineStyle = .single
-        titleAttr.underlineColor = .tvingGray2
-        config.attributedTitle = titleAttr
-        config.baseForegroundColor = .tvingGray2
-        config.titleAlignment = .center
-        let button = UIButton(configuration: config)
-
-        let action = UIAction { _ in
-            let bottomSheetVC = BottomSheetViewController()
-            bottomSheetVC.modalPresentationStyle = .overFullScreen
-            bottomSheetVC.completion = { nickname in
-                self.nickname = nickname
-            }
-            self.present(bottomSheetVC, animated: false) {
-                bottomSheetVC.showBottomSheetWithAnimation()
-            }
-        }
-        button.addAction(action, for: .touchUpInside)
-        button.titleLabel?.numberOfLines = 1
-        button.setUnderline()
-        return button
-    }()
+//    private lazy var createAccountButton: UIButton = {
+//        var config = UIButton.Configuration.plain()
+//        var titleAttr = AttributedString("닉네임 만들러가기")
+//        titleAttr.font = .font(.pretendardRegular, ofSize: 14)
+//        titleAttr.underlineStyle = .single
+//        titleAttr.underlineColor = .tvingGray2
+//        config.attributedTitle = titleAttr
+//        config.baseForegroundColor = .tvingGray2
+//        config.titleAlignment = .center
+//        let button = UIButton(configuration: config)
+//
+//        let action = UIAction { _ in
+//            let bottomSheetVC = BottomSheetViewController()
+//            bottomSheetVC.modalPresentationStyle = .overFullScreen
+//            bottomSheetVC.completion = { nickname in
+//                self.nickname = nickname
+//            }
+//            self.present(bottomSheetVC, animated: false) {
+//                bottomSheetVC.showBottomSheetWithAnimation()
+//            }
+//        }
+//        button.addAction(action, for: .touchUpInside)
+//        button.titleLabel?.numberOfLines = 1
+//        button.setUnderline()
+//        return button
+//    }()
 
     private lazy var noAccountStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [
-            noAccountLabel,
-            createAccountButton
+            noAccountLabel
+//            createAccountButton
         ])
         stackView.axis = .horizontal
         stackView.spacing = 17
@@ -221,8 +221,6 @@ private extension LoginViewController {
         view.addSubviews(
             loginLabel,
             textFieldStackView,
-            loginButton,
-            findInfoStackView,
             noAccountStackView
         )
 
@@ -245,25 +243,25 @@ private extension LoginViewController {
             make.leading.trailing.equalToSuperview().inset(20)
         }
 
-        loginButton.snp.makeConstraints { make in
-            make.height.equalTo(52)
-            make.top.equalTo(textFieldStackView.snp.bottom).offset(21)
-            make.leading.trailing.equalTo(textFieldStackView)
-        }
+//        loginButton.snp.makeConstraints { make in
+//            make.height.equalTo(52)
+//            make.top.equalTo(textFieldStackView.snp.bottom).offset(21)
+//            make.leading.trailing.equalTo(textFieldStackView)
+//        }
 
         grayLineView.snp.makeConstraints { make in
             make.width.equalTo(1)
             make.height.equalTo(12)
         }
 
-        findInfoStackView.snp.makeConstraints { make in
-            make.centerX.equalTo(loginButton)
-            make.top.equalTo(loginButton.snp.bottom).offset(31)
-        }
+//        findInfoStackView.snp.makeConstraints { make in
+//            make.centerX.equalTo(loginButton)
+//            make.top.equalTo(loginButton.snp.bottom).offset(31)
+//        }
 
         noAccountStackView.snp.makeConstraints { make in
-            make.top.equalTo(findInfoStackView.snp.bottom).offset(31)
-            make.leading.trailing.equalToSuperview().inset(49)
+//            make.top.equalTo(findInfoStackView.snp.bottom).offset(31)
+//            make.leading.trailing.equalToSuperview().inset(49)
         }
     }
 }
@@ -277,22 +275,22 @@ private extension LoginViewController {
     }
 
     func setButtonHandler() {
-        loginButton.configurationUpdateHandler = { button in
-            var config = button.configuration
-            config?.background.backgroundColor = button.isUserInteractionEnabled
-            ? .tvingRed
-            : .tvingBlack
-            config?.baseForegroundColor = button.isUserInteractionEnabled
-            ? .tvingWhite
-            : .tvingGray2
-            button.configuration = config
-        }
+//        loginButton.configurationUpdateHandler = { button in
+//            var config = button.configuration
+//            config?.background.backgroundColor = button.isUserInteractionEnabled
+//            ? .tvingRed
+//            : .tvingBlack
+//            config?.baseForegroundColor = button.isUserInteractionEnabled
+//            ? .tvingWhite
+//            : .tvingGray2
+//            button.configuration = config
+//        }
     }
 
     func bind() {
-        self.viewModel.isLoginButtonEnableUpdated = { isEnable in
-            self.loginButton.isUserInteractionEnabled = isEnable
-            self.setButtonHandler()
-        }
+//        self.viewModel.isLoginButtonEnableUpdated = { isEnable in
+//            self.loginButton.isUserInteractionEnabled = isEnable
+//            self.setButtonHandler()
+//        }
     }
 }
