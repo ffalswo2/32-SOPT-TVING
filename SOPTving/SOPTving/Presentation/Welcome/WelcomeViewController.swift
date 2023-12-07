@@ -67,6 +67,7 @@ private extension WelcomeViewController {
     }
 
     func setLayout() {
+        
         view.addSubviews(
             tvingImageView,
             welcomeLabel,
