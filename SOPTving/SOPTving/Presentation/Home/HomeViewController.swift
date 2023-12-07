@@ -14,6 +14,7 @@ protocol HomeViewControllerProtocol: AnyObject {
 
 final class HomeViewController: BaseViewController {
 
+    
     // MARK: - Properties
 
     private var viewModel: HomeViewModel
