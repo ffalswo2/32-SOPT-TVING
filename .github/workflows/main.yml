@@ -14,6 +14,9 @@ jobs:
   build:
     # job이 실행될 환경 - 최신 mac os
     runs-on: macos-latest
+    strategy:
+      matrix:
+        xcode: [15.0.1]
 
     # Step은 job의 일부로 실행될 일련의 task들을 나타냄
     steps:
