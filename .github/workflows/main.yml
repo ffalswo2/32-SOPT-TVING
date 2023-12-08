@@ -25,7 +25,7 @@
 #     # shell 이용해서 하나의 command 수행
 #     - name: Start xcode build 🛠
 #       run: |
-#         xcodebuild clean test -project SOPTving/SOPTving.xcodeproj -scheme SOPTving -destination 'platform=iOS Simulator,name=iPhone 11 Pro,OS=latest'
+#         xcodebuild test -project SOPTving/SOPTving.xcodeproj -scheme SOPTving -destination 'platform=iOS Simulator,name=iPhone 11 Pro,OS=latest'
 
 
 name: Test
